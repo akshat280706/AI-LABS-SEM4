@@ -156,7 +156,7 @@ def run(method):
         output.insert(tk.END, "The path cost is: " + str(len(path)-1))
     else:
         output.insert(tk.END, "sorry, no such solution exists, try with some other inputs")
-
+        messagebox.showerror("error", "no such solution exists")
 root = tk.Tk()
 root.title("241080009(IT): Water Jug")
 
