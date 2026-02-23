@@ -104,7 +104,11 @@ def state_space(cap1, cap2):
     while queue:
         state=queue.pop(0)
         for ns in next_state(state, cap1, cap2):
-            G.add_edge(state,ns)
+            if ns==state:
+                continue
+            
+            if not G.has_edge(state,ns):
+                G.add_edge(state,ns)
             
             if ns not in visited:
                 visited.add(ns)
