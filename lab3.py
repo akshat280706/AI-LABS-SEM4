@@ -36,7 +36,7 @@ def validate_inputs(require_target=False):
         messagebox.showerror("error", "enter valid integers")
         return None
     
-    if cap1<=0 or cap2<=0:
+    if cap1<0 or cap2<0:
         messagebox.showerror("error", "enter value greater than 0")
         return None
     if require_target:
