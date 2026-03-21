@@ -1,3 +1,4 @@
+# 241080009_akshat_AI Lab4
 import tkinter as tk
 from tkinter import messagebox
 import networkx as nx
@@ -86,26 +87,10 @@ def draw_graph(path=None):
                 G.add_edge(city,neighbor,weight=cost)
     
     pos={
-        'Arad':(0,3),
-        'Zerind':(0,4),
-        'Oradea':(1, 4),
-        'Sibiu':(2, 3),
-        'Timisoara':(0, 2),
-        'Lugoj':(1, 1),
-        'Mehadia':(2, 0),
-        'Drobeta':(3, 0),
-        'Craiova':(4, 1),
-        'Rimnicu Vilcea':(3, 2),
-        'Fagaras':(4, 3),
-        'Pitesti':(5, 2),
-        'Bucharest':(6, 3),
-        'Giurgiu':(6, 2),
-        'Urziceni':(7, 3),
-        'Hirsova':(8, 3),
-        'Eforie':(9, 3),
-        'Vaslui':(7, 4),
-        'Iasi':(8, 5),
-        'Neamt':(9, 6)
+        'Arad':(0,3),'Zerind':(0,4),'Oradea':(1, 4),'Sibiu':(2, 3),'Timisoara':(0, 2),
+        'Lugoj':(1, 1),'Mehadia':(2, 0),'Drobeta':(3, 0),'Craiova':(4, 1),'Rimnicu Vilcea':(3, 2),
+        'Fagaras':(4, 3),'Pitesti':(5, 2),'Bucharest':(6, 3),'Giurgiu':(6, 2),'Urziceni':(7, 3),
+        'Hirsova':(8, 3),'Eforie':(9, 3),'Vaslui':(7, 4),'Iasi':(8, 5),'Neamt':(9, 6)
     }
     plt.figure(figsize=(10,7))
     edge_labels=nx.get_edge_attributes(G,'weight')
@@ -142,15 +127,7 @@ def run_astar():
         return
     path,visited,cost=astar(start,goal)
     result_text.delete(1.0, tk.END)
-    
-    # in case no path is found
-    # if not path:
-    #     result_text.insert(tk.END, "No path found!\n")
-    #     result_text.insert(tk.END, "Visited:\n")
-    #     result_text.insert(tk.END, " -> ".join(visited))
-    #     draw_graph(None, visited, goal)
-    #     return
-    
+
     result_text.insert(tk.END, "visited nodes are:\n")
     result_text.insert(tk.END, "->".join(visited))
     result_text.insert(tk.END, "\n\noptimal path is:\n")
