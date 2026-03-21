@@ -40,9 +40,13 @@ def astar(start, goal):
     g_cost={node:float('inf') for node in graph}
     g_cost[start]=0
     visited=[]
+    closed=set()
     
     while open_list:
         f,current=heapq.heappop(open_list)
+        if current in closed:
+            continue
+        closed.add(current)        
         visited.append(current)
         
         if current==goal:
@@ -55,13 +59,12 @@ def astar(start, goal):
                 g_cost[neighbor]=new_cost
                 f_cost=new_cost+heuristic[neighbor]
                 heapq.heappush(open_list,(f_cost,neighbor))
-                came_from[neighbor]=current 
+                came_from[neighbor]=current
+    if g_cost[goal]==float('inf'):
+        return [], visited, float('inf')
+    
     path=[]
     node=goal
-    
-    if goal not in came_from:
-        return [], visited, float('inf')
-
     while node!=start:
         path.append(node)
         node=came_from[node]
@@ -152,7 +155,7 @@ def run_astar():
     result_text.insert(tk.END, "->".join(visited))
     result_text.insert(tk.END, "\n\noptimal path is:\n")
     result_text.insert(tk.END, "->".join(path))
-    result_text.insert(tk.END,"\n\npath cost is: '"+str(cost))
+    result_text.insert(tk.END,"\n\npath cost is: "+str(cost))
     
     draw_graph(path)
     
