@@ -10,7 +10,7 @@ graph = {
     'Bucharest':{'Fagaras':211, 'Pitesti':101, 'Giurgiu':90, 'Urziceni':85},
     'Craiova':{'Drobeta':120, 'Rimnicu Vilcea':146, 'Pitesti':138},
     'Drobeta':{'Mehadia':75, 'Craiova':120},
-    'Eforie':{'Hirsova':86},
+    'Eforie':{'Hirsova':86},    
     'Fagaras':{'Sibiu':99, 'Bucharest':211},
     'Giurgiu':{'Bucharest':90},
     'Hirsova':{'Urziceni':98, 'Eforie':86},
@@ -108,7 +108,8 @@ def draw_graph(path=None):
 
 def run_astar():
     start=start_entry.get().strip()
-    goal=goal_entry.get().strip()
+    # goal=goal_entry.get().strip()
+    goal= "Bucharest"
     
     if start=="" or goal=="":
         messagebox.showerror("input error","input both source and destination")
@@ -122,9 +123,9 @@ def run_astar():
     if goal not in graph:
         messagebox.showerror("error", "'"+goal+"' is not a valid city")
         return
-    if start==goal:
-        messagebox.showerror("error", "source and destination canot be the same")
-        return
+    # if start==goal:
+    #     messagebox.showerror("error", "source and destination canot be the same")
+    #     return
     path,visited,cost=astar(start,goal)
     result_text.delete(1.0, tk.END)
 
@@ -145,9 +146,9 @@ root.geometry("500x500")
 tk.Label(root, text="enter source city").pack()
 start_entry=tk.Entry(root)
 start_entry.pack()
-tk.Label(root, text="enter destination").pack()
-goal_entry=tk.Entry(root)
-goal_entry.pack()
+tk.Label(root, text="Destination: Bucharest").pack(pady=5)
+# goal_entry=tk.Entry(root)
+# goal_entry.pack()
 
 tk.Button(root, text="Run A*", command=run_astar).pack(pady=10)
 tk.Button(root, text="show whole map", command=show_grah).pack(pady=10)
