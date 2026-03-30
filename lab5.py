@@ -47,6 +47,7 @@ def hill_climbing(n):
 
         if best is None:
             break
+            # return hill_climbing(n)
         current=best
         path.append(current)
         visited.append(tuple(current))
@@ -80,7 +81,7 @@ def show_full_graph():
     pos=nx.spring_layout(last_graph, seed=42)
     nx.draw(last_graph, pos, with_labels=True,
             node_size=500, font_size=6,node_color="lightblue")
-    plt.title("State space of N queens")
+    plt.title("state space of N queens")
     plt.show()
 
 def show_path_graph():
@@ -137,10 +138,3 @@ canvas.pack()
 output=tk.Text(root, height=15, width=60)
 output.pack()
 root.mainloop()
-        
-
-        
-    
-    
-    
-          
