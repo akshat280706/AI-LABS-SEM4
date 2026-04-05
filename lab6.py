@@ -138,7 +138,7 @@ def check_game_over():
         for btn in buttons:
             btn.config(state="disabled")
 
-def ai_move():
+def computer_move():
     global visited_nodes, pruned_nodes
     visited_nodes=0
     pruned_nodes=0
@@ -164,7 +164,7 @@ def play_move(i):
         buttons[i]["text"]="X"
         check_game_over()
         if not check_winner(board):
-            ai_move()
+            computer_move()
 
 root=tk.Tk()
 root.title("241080009_akshat_Alpha-Beta")
