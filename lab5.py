@@ -108,10 +108,10 @@ def run_algorithm():
         last_graph=G
         last_path=path
         output.delete("1.0",tk.END)
-        output.insert(tk.END, "initial state: "+str(path[0])+"h="+str(calculate_conflicts(path[0]))+"\n\n")
+        output.insert(tk.END, "initial state: "+str(path[0])+ " h="+str(calculate_conflicts(path[0]))+"\n\n")
         output.insert(tk.END, "path: \n")
         for p in path:
-            output.insert(tk.END, str(p)+"h="+str(calculate_conflicts(p))+"\n")
+            output.insert(tk.END, str(p)+" h="+str(calculate_conflicts(p))+"\n")
         output.insert(tk.END, "\nvisited nodes:\n")
         for v in visited:
             output.insert(tk.END, str(v)+"\n")
