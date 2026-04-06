@@ -108,7 +108,7 @@ def draw_graph(G,root,best_node):
     node_colors=[]
     for node in G.nodes():
         if node==root:
-            node_colors.append("blue")
+            node_colors.append("skyblue")
         elif node==best_node:
             node_colors.append("lightgreen")
         else:
@@ -179,5 +179,10 @@ for i in range(9):
     buttons.append(btn)
 graph_frame=tk.Frame(root)
 graph_frame.pack(side="right",padx=10)
+import sys
+def close():
+    root.destroy()
+    sys.exit()
+root.protocol("WM_DELETE_WINDOW",close)
 root.mainloop()
         
