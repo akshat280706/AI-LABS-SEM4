@@ -66,7 +66,7 @@ def reveal_cell(x,y):
         
         if world[cell]=="g":
             buttons[cell].config(text="gold",bg="yellow")
-            messagebox.showerror("damnn","you found gold")
+            messagebox.showinfo("damnn","you found gold")
             game_over=True
             reveal_all()
             return
