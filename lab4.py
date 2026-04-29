@@ -123,9 +123,9 @@ def run_astar():
     if goal not in graph:
         messagebox.showerror("error", "'"+goal+"' is not a valid city")
         return
-    # if start==goal:
-    #     messagebox.showerror("error", "source and destination canot be the same")
-    #     return
+    if start==goal:
+        messagebox.showerror("error", "source and destination canot be the same")
+        return
     path,visited,cost=astar(start,goal)
     result_text.delete(1.0, tk.END)
 
@@ -156,6 +156,7 @@ tk.Button(root, text="show whole map", command=show_grah).pack(pady=10)
 result_text=tk.Text(root,height=15)
 result_text.pack()
 root.mainloop()
+
 
 
 
